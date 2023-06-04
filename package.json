@@ -1,0 +1,21 @@
+{
+  "name": "rakamin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sitespeed.io/edgedriver": "^113.0.1774-9",
+    "assert": "^2.0.0",
+    "chromedriver": "^113.0.0",
+    "geckodriver": "^4.0.0",
+    "selenium-webdriver": "^4.9.2"
+  },
+  "devDependencies": {
+      "mocha": "^10.2.0"
+  }
+}
