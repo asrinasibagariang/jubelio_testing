@@ -14,23 +14,21 @@ suite(function (env) {
 
     after(async () => await driver.quit());
 
-    it('First Selenium script', async function () {
-      await driver.get('https://www.selenium.dev/selenium/web/web-form.html');
+    it('Open login page', async function () {
+      await driver.get('https://app.jubelio.com/');
 
       let title = await driver.getTitle();
-      assert.equal("Web form", title);
+      assert.equal("Jubelio", title);
 
-      await driver.manage().setTimeouts({implicit: 500});
+      let emailTextBox = await driver.findElement(By.name('email'));
+      let passwordTextBox = await driver.findElement(By.name('password'));
+      let submitButton = await driver.findElement(By.css('.btn'));
 
-      let textBox = await driver.findElement(By.name('my-text'));
-      let submitButton = await driver.findElement(By.css('button'));
-
-      await textBox.sendKeys('Selenium');
+      await emailTextBox.sendKeys('qa.rakamin.jubelio@gmail.com');
+      await passwordTextBox.sendKeys('Jubelio123!');
       await submitButton.click();
 
-      let message = await driver.findElement(By.id('message'));
-      let value = await message.getText();
-      assert.equal("Received!", value);
-    });
+    })
+
   });
 }, { browsers: [Browser.CHROME, Browser.FIREFOX]});
